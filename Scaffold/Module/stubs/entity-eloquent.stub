@@ -2,18 +2,15 @@
 
 namespace Modules\$MODULE_NAME$\Entities;
 
-use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 class $CLASS_NAME$ extends Model
 {
-    use Translatable;
 
     protected $table = '$LOWERCASE_MODULE_NAME$__$PLURAL_LOWERCASE_CLASS_NAME$';
-    public $translatedAttributes = [];
     protected $fillable = [];
 
-    public function action_button()
+    public function action_buttons()
     {
         $editbtn = '<a href="' . route('admin.$LOWERCASE_MODULE_NAME$.$LOWERCASE_CLASS_NAME$.edit', [$this->id]) . '" class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>';
         $deletebtn = '<button class="btn btn-danger btn-flat" data-toggle="modal" data-target="#modal-delete-confirmation" data-action-target="' . route('admin.$LOWERCASE_MODULE_NAME$.$LOWERCASE_CLASS_NAME$.destroy', [$this->id]) . '"><i class="fa fa-trash"></i></button>';
