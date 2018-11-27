@@ -33,7 +33,12 @@ class $CLASS_NAME$Controller extends AdminBaseController
     {
         //$$PLURAL_LOWERCASE_CLASS_NAME$ = $this->$LOWERCASE_CLASS_NAME$->all();
 
-        return view('$LOWERCASE_MODULE_NAME$::admin.$PLURAL_LOWERCASE_CLASS_NAME$.index', compact(''));
+        if ($request->ajax()) {
+            $$PLURAL_LOWERCASE_CLASS_NAME$ = $CLASS_NAME$::query()->select(['created_at']);
+            return datatables()->of($epics)->make(true);
+        }
+
+        return view('$LOWERCASE_MODULE_NAME$::admin.$PLURAL_LOWERCASE_CLASS_NAME$.index');
     }
 
     /**
