@@ -36,8 +36,12 @@ class $CLASS_NAME$Controller extends AdminBaseController
         //$$PLURAL_LOWERCASE_CLASS_NAME$ = $this->$LOWERCASE_CLASS_NAME$->all();
 
         if ($request->ajax()) {
-            $$PLURAL_LOWERCASE_CLASS_NAME$ = $CLASS_NAME$::query()->select(['created_at']);
-            return datatables()->of($$PLURAL_LOWERCASE_CLASS_NAME$)->make(true);
+            $$PLURAL_LOWERCASE_CLASS_NAME$ = $CLASS_NAME$::query()->select(['id', 'created_at']);
+            return datatables()->eloquent($$PLURAL_LOWERCASE_CLASS_NAME$)
+                    ->addColumn('actions', function($CLASS_NAME$ $$LOWERCASE_CLASS_NAME$) {
+                        return $$LOWERCASE_CLASS_NAME$->action_buttons();
+                    })
+                    ->toJson();
         }
 
         return view('$LOWERCASE_MODULE_NAME$::admin.$PLURAL_LOWERCASE_CLASS_NAME$.index');

@@ -77,7 +77,13 @@
                 "serverSide": true,
                 "processing": true,
                 "columns": [
-                    {data: 'created_at'}
+                    {data: 'created_at'},
+                    {
+                        data: 'actions',
+                        render: function ( data, type, full ) {
+                            return $("<div/>").html(data).text();
+                        }
+                    },
                 ],
                 "language": {
                     "url": '<?php echo Module::asset("core:js/vendor/datatables/{$locale}.json") ?>'
