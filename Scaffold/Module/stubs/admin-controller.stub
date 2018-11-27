@@ -27,9 +27,11 @@ class $CLASS_NAME$Controller extends AdminBaseController
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return Response
+     * @throws \Exception
      */
-    public function index()
+    public function index(Request $request)
     {
         //$$PLURAL_LOWERCASE_CLASS_NAME$ = $this->$LOWERCASE_CLASS_NAME$->all();
 
