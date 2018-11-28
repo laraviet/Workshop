@@ -47,10 +47,10 @@ class EntityGenerator extends Generator
                 $this->getModulesPath("Entities/$entity"),
                 $this->getContentForStub($entityTypeStub, $entity)
             );
-            $this->writeFile(
-                $this->getModulesPath("Entities/{$entity}Translation"),
-                $this->getContentForStub("{$entityType}-entity-translation.stub", $entity)
-            );
+            // $this->writeFile(
+            //     $this->getModulesPath("Entities/{$entity}Translation"),
+            //     $this->getContentForStub("{$entityType}-entity-translation.stub", $entity)
+            // );
             if ($this->entityType == 'Eloquent') {
                 $this->generateMigrationsFor($entity);
             }
@@ -74,7 +74,7 @@ class EntityGenerator extends Generator
      */
     private function generateRepositoriesFor($entity)
     {
-        if (! $this->finder->isDirectory($this->getModulesPath('Repositories/' . $this->entityType))) {
+        if (!$this->finder->isDirectory($this->getModulesPath('Repositories/' . $this->entityType))) {
             $this->finder->makeDirectory($this->getModulesPath('Repositories/' . $this->entityType));
         }
 
@@ -101,7 +101,7 @@ class EntityGenerator extends Generator
     private function generateControllerFor($entity)
     {
         $path = $this->getModulesPath('Http/Controllers/Admin');
-        if (! $this->finder->isDirectory($path)) {
+        if (!$this->finder->isDirectory($path)) {
             $this->finder->makeDirectory($path);
         }
         $this->writeFile(
@@ -118,7 +118,7 @@ class EntityGenerator extends Generator
     private function generateRequestsFor($entity)
     {
         $path = $this->getModulesPath('Http/Requests');
-        if (! $this->finder->isDirectory($path)) {
+        if (!$this->finder->isDirectory($path)) {
             $this->finder->makeDirectory($path);
         }
         $this->writeFile(
@@ -182,13 +182,13 @@ class EntityGenerator extends Generator
             $this->getModulesPath("Database/Migrations/{$migrationName}"),
             $this->getContentForStub('create-table-migration.stub', $entity)
         );
-        usleep(250000);
-        $lowercaseEntityName = strtolower($entity);
-        $migrationName = $this->getDateTimePrefix() . "create_{$lowercaseModuleName}_{$lowercaseEntityName}_translations_table";
-        $this->writeFile(
-            $this->getModulesPath("Database/Migrations/{$migrationName}"),
-            $this->getContentForStub('create-translation-table-migration.stub', $entity)
-        );
+        // usleep(250000);
+        // $lowercaseEntityName = strtolower($entity);
+        // $migrationName = $this->getDateTimePrefix() . "create_{$lowercaseModuleName}_{$lowercaseEntityName}_translations_table";
+        // $this->writeFile(
+        //     $this->getModulesPath("Database/Migrations/{$migrationName}"),
+        //     $this->getContentForStub('create-translation-table-migration.stub', $entity)
+        // );
     }
 
     /**
@@ -305,9 +305,9 @@ class EntityGenerator extends Generator
     private function getDateTimePrefix()
     {
         $t = microtime(true);
-        $micro = sprintf("%06d", ($t - floor($t)) * 1000000);
+        $micro = sprintf('%06d', ($t - floor($t)) * 1000000);
         $d = new \DateTime(date('Y-m-d H:i:s.' . $micro, $t));
 
-        return $d->format("Y_m_d_Hisu_");
+        return $d->format('Y_m_d_Hisu_');
     }
 }
