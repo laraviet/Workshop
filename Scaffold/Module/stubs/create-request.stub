@@ -8,6 +8,7 @@ class Create$CLASS_NAME$Request extends BaseFormRequest
 {
     public function rules()
     {
+        // TODO create rules
         return [];
     }
 

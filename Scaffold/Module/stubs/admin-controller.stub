@@ -36,7 +36,7 @@ class $CLASS_NAME$Controller extends AdminBaseController
         //$$PLURAL_LOWERCASE_CLASS_NAME$ = $this->$LOWERCASE_CLASS_NAME$->all();
 
         if ($request->ajax()) {
-            $$PLURAL_LOWERCASE_CLASS_NAME$ = $CLASS_NAME$::query()->select(['id', 'created_at']);
+            $$PLURAL_LOWERCASE_CLASS_NAME$ = $CLASS_NAME$::query()->select(['id', 'created_at']); // TODO list fields in select()
             return datatables()->eloquent($$PLURAL_LOWERCASE_CLASS_NAME$)
                     ->addColumn('actions', function($CLASS_NAME$ $$LOWERCASE_CLASS_NAME$) {
                         return $$LOWERCASE_CLASS_NAME$->action_buttons();

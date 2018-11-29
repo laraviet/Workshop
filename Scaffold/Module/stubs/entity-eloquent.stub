@@ -8,7 +8,7 @@ class $CLASS_NAME$ extends Model
 {
 
     protected $table = '$LOWERCASE_MODULE_NAME$__$PLURAL_LOWERCASE_CLASS_NAME$';
-    protected $fillable = [];
+    protected $fillable = []; // TODO Add fields into fillable array
 
     public function action_buttons()
     {

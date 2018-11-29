@@ -1,3 +1,4 @@
 <div class="box-body">
+<!-- TODO list fields for form -->
 {{--{!! Form::normalInput('name', "Name", $errors, $$LOWERCASE_CLASS_NAME$) !!}--}}
 </div>
