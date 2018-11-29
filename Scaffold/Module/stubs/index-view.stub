@@ -26,7 +26,7 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                     <div class="table-responsive">
-                        <!-- TODO list fields in thead and tfoot -->
+                        <!-- TODO: list fields in thead and tfoot -->
                         <table class="data-table table table-bordered table-hover">
                             <thead>
                             <tr>
@@ -78,7 +78,7 @@
                 "serverSide": true,
                 "processing": true,
                 "columns": [
-                    // TODO list fields here
+                    // TODO: list fields here
                     {data: 'created_at'},
                     {
                         data: 'actions',
